@@ -1,5 +1,6 @@
 .main {
     min-height: 15vh;
+    width: 100%;
     background-color: lightskyblue;
     padding: 10px;
 }
