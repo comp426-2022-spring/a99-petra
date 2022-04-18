@@ -1,0 +1,69 @@
+
+
+.container{
+    background-color: #F5F5F5;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    height: 100%;
+    align-content: center;
+}
+
+.mainBox{
+    align-content: center;
+    justify-content: center;
+    width: 70%;
+    background-color: white;
+}
+
+.loginBox{
+    background-color: #444444;
+    color: white;
+    width: 100%;
+    height: 15%;
+    text-align: center;
+    font-size: x-large;
+}
+
+.passwordBox, .usernameBox {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+.submitBox{
+    background-color: #007AFF;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.link{
+  color: #007AFF;
+}
+
+.link:hover{
+  opacity: 0.5;
+}
+
+.submitBox:hover {
+    opacity: 0.5;
+  }
+
+  .formBox{
+    padding: 20px;
+  }
+
+
+
+
+
+
+
