@@ -1,8 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { getCovidData } from '../data/covidData'
+import React, { useState } from 'react'
 
 export default function Home() {
+  getCovidData()
+
   return (
     <div className={styles.container}>
       <Head>
