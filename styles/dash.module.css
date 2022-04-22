@@ -13,6 +13,9 @@
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 2;
+    font-size: 70px;
+    padding: 5px;
+    font-weight: lighter;
 }
 
 .footer{
@@ -46,6 +49,8 @@
     margin: 11px;
     margin-right: 30px;
     padding: 3%;
+    font-size: 50px;
+    text-align: center;
 }
 
 .smallBox1:hover{
@@ -61,6 +66,8 @@
     margin: 11px;
     margin-right: 30px;
     padding: 3%;
+    font-size: 50px;
+    text-align: center;
 }
 
 .smallBox2:hover{
@@ -132,5 +139,16 @@
     flex-direction: column;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+.footLinks{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    padding: 10px;
+}
+
+.footer{
+    padding-left: 30px;
 }
 
