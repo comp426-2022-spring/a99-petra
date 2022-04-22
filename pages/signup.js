@@ -13,7 +13,7 @@ function SignUp(Component) {
 
       });
 
-      
+
     
       const handleSubmit = e => {
         
@@ -40,7 +40,10 @@ function SignUp(Component) {
     
 
     return ( 
-        
+        <div className="Page">
+            <header>
+                SIGN UP
+            </header>
         <div className="Inputs">
             <form>
                 <label for="firstname">
@@ -80,6 +83,8 @@ function SignUp(Component) {
                 </label>
                 <input type="submit" id="submit" value="Submit" onSubmit={handleSubmit} disabled={false}></input>
             </form>
+            <a className= "Login" href="login page link***">LOGIN</a>
+        </div>
         </div>
         
         
