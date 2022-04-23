@@ -1,0 +1,41 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    background-color: white;
+    width: 40%;
+    height: 75%;
+}
+
+.circle{
+    border-radius: 100%;
+    background-color: aquamarine;
+    height: 100px;
+    width: 100px;
+    align-self: center;
+}
+
+.button{
+    background-color: #323943;
+    color: white;
+    width: 15%;
+    height: 10%;
+    padding: 5px;
+    margin: 10px;
+    align-self: center;
+}
+
+.button:hover{
+    opacity: 50%;
+}
+
+.contain{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #ECF0F3;
+    height: 740px;
+    padding: 8%;
+}
