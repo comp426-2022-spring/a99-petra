@@ -18,8 +18,8 @@ export default function Home() {
                 </div>
               </div>
               <div id={styles.navbar_links}>
-                <a href="home.html" class="active">home</a>
-                <a href="dashboard.html">dashboard</a>
+                <a href="/" class="active">home</a>
+                <a href="/simpleDashboard">dashboard</a>
               </div>
             </div>
           </div>
