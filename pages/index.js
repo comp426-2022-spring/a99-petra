@@ -9,7 +9,7 @@ export default function Home() {
 
           <div id={styles.navbar}>
             <div id={styles.navbar_content}>
-              {/* <img src="placeholder.png" /> */}
+              <img src="placeholder.png" />
               <div id={styles.navbar_profile}>
                 <div id={styles.profile_box}>
                   <p>john martin</p>
