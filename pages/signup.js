@@ -26,7 +26,7 @@ function SignUp() {
           .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
-            // ...
+            console.log("Signed up user: ", user)
           })
           .catch((error) => {
             console.log(error.code);
