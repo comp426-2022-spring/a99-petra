@@ -30,7 +30,7 @@ function SignUp() {
             console.log("Signed up user: ", user)
             const newData = {...data, uid: user.uid};
             console.log(newData);
-            axios.post("/api/users", data).then((response) => {
+            axios.post("/api/users", newData).then((response) => {
                 console.log(response);
             })
           })
