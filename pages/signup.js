@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "@firebase/auth";
+import axios from "axios";
 
 
 function SignUp() {
@@ -27,6 +28,9 @@ function SignUp() {
             // Signed in 
             const user = userCredential.user;
             console.log("Signed up user: ", user)
+            axios.post("/api/users", data).then((response) => {
+                console.log(response);
+            })
           })
           .catch((error) => {
             console.log(error.code);
