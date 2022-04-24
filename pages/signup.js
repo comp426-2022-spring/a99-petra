@@ -40,20 +40,7 @@ function SignUp() {
         console.log(data);
       }
 
-      /*const changePassword = e => {
-        setData({...data,[e.target.name]:[e.target.value]});
-        if(data.password != data.repeatpassword) {
-            document.getElementById("submit").disabled=true;
-        }
-        else{
-            document.getElementById("submit").disabled=false;
-        }
-      }*/
-
       const {firstname, lastname, email, phone, username,password, repeatpassword} = data;
-
-      //var disabled = false;
-
     
 
     return ( 
