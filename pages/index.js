@@ -26,8 +26,8 @@ export default function Home() {
 
           <div id={styles.content}>
             <div id={styles.about}>
-              <p>Team: Petra</p>
-              <p>Members: Andrew Byerle, Ashwin Yerramsetty, Matthew Bare, Sofia Wong, Winfield Warren</p>
+              <p>Team Petra</p>
+              <p>Created By: Andrew Byerle, Ashwin Yerramsetty, Matthew Bare, Sofia Wong, Winfield Warren</p>
               <p>Description:</p>
             </div>
           </div>
