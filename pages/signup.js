@@ -40,7 +40,7 @@ function SignUp() {
         console.log(data);
       }
 
-      const {firstname, lastname, email, phone, username,password, repeatpassword} = data;
+      const {firstname, lastname, email, phone, username,password } = data;
     
 
     return ( 
@@ -80,19 +80,11 @@ function SignUp() {
                     <input type="password" placeholder="Enter Password" name="password" value={password} onChange={changeUpdate} required></input>
                 </label>
                 <br></br>
-                <label for="repeatpassword">
-                    Repeat Password: 
-                    <input type="password" placeholder="Enter Your Password Again" name="repeatpassword" value={repeatpassword} onChange={changeUpdate} required></input>
-                    <span name="confirmation"></span>
-                </label>
                 <input 
                 type="submit" 
                 id="submit" 
                 value="Submit" 
-                // onSubmit={handleSubmit} 
-                // disabled={false}
                 >
-
                 </input>
             </form>
             <a className= "Login" href="login page link***">LOGIN</a>
