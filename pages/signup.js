@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "@firebase/auth";
+import axios from "axios";
 
 
 function SignUp() {
@@ -22,11 +23,16 @@ function SignUp() {
         console.log("HANDLE SUBMIT");
         const auth = getAuth();
         console.log("auth", auth)
-        createUserWithEmailAndPassword(auth, data.email[0], data.password[0])
+        createUserWithEmailAndPassword(auth, data.email, data.password)
           .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
             console.log("Signed up user: ", user)
+            const newData = {...data, uid: user.uid};
+            console.log(newData);
+            axios.post("/api/users", newData).then((response) => {
+                console.log(response);
+            })
           })
           .catch((error) => {
             console.log(error.code);
@@ -36,7 +42,7 @@ function SignUp() {
       }
     
       const changeUpdate = e => {
-        setData({...data,[e.target.name]:[e.target.value]});
+        setData({...data,[e.target.name]:e.target.value});
         console.log(data);
       }
 

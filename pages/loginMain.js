@@ -13,7 +13,7 @@ export default function Home() {
     event.preventDefault();
     console.log("Handle submit", data.email, data.password)
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, data.email[0], data.password[0])
+    signInWithEmailAndPassword(auth, data.email, data.password)
       .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
@@ -27,7 +27,7 @@ export default function Home() {
   }
 
   const changeUpdate = e => {
-    setData({ ...data, [e.target.name]: [e.target.value] });
+    setData({ ...data, [e.target.name]: e.target.value });
     console.log(data)
   }
 
