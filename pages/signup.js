@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { getAuth, createUserWithEmailAndPassword } from "@firebase/auth";
 
-function SignUp(Component) {
+
+function SignUp() {
 
     const [data,setData] = useState({
         firstname:"",
@@ -15,12 +17,27 @@ function SignUp(Component) {
 
 
     
-      const handleSubmit = e => {
+      const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("HANDLE SUBMIT");
+        const auth = getAuth();
+        console.log("auth", auth)
+        createUserWithEmailAndPassword(auth, data.email[0], data.password[0])
+          .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+          })
+          .catch((error) => {
+            console.log(error.code);
+            console.log(error.message);
+          });
         
       }
     
       const changeUpdate = e => {
         setData({...data,[e.target.name]:[e.target.value]});
+        console.log(data);
       }
 
       /*const changePassword = e => {
@@ -45,7 +62,7 @@ function SignUp(Component) {
                 SIGN UP
             </header>
         <div className="Inputs">
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label for="firstname">
                     First Name: 
                     <input type="text" placeholder="John" name="firstname" value={firstname} onChange={changeUpdate} required></input>
@@ -81,7 +98,15 @@ function SignUp(Component) {
                     <input type="password" placeholder="Enter Your Password Again" name="repeatpassword" value={repeatpassword} onChange={changeUpdate} required></input>
                     <span name="confirmation"></span>
                 </label>
-                <input type="submit" id="submit" value="Submit" onSubmit={handleSubmit} disabled={false}></input>
+                <input 
+                type="submit" 
+                id="submit" 
+                value="Submit" 
+                // onSubmit={handleSubmit} 
+                // disabled={false}
+                >
+
+                </input>
             </form>
             <a className= "Login" href="login page link***">LOGIN</a>
         </div>
