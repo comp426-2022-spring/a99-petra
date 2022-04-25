@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from '../styles/profile.module.css';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, deleteUser } from "firebase/auth";
 
 
 export default function Home() {
@@ -30,24 +30,32 @@ export default function Home() {
     })
 
     const handleFirstnameChange = (event) => {
-        setUserData({ ...userData, firstname : event.target.value } );
-     };
+        setUserData({ ...userData, firstname: event.target.value });
+    };
 
-     const handleLastnameChange = (event) => {
-        setUserData({ ...userData, lastname : event.target.value } );
-     };
+    const handleLastnameChange = (event) => {
+        setUserData({ ...userData, lastname: event.target.value });
+    };
 
-     const saveNewUserInfo = () => {
-         axios.put(`/api/users/${uid}`, userData).then((response) => {
-             console.log(response)
-         })
-     }
+    const saveNewUserInfo = () => {
+        axios.put(`/api/users/${uid}`, userData).then((response) => {
+            console.log(response)
+        })
+    }
 
-     const deleteAccount = () => {
-         axios.delete(`/api/users/${uid}`).then((response) => {
-             console.log(response)
-         })
-     }
+    const deleteAccount = () => {
+        axios.delete(`/api/users/${uid}`).then((response) => {
+            console.log(response)
+        })
+        const auth = getAuth();
+        const user = auth.currentUser;
+
+        deleteUser(user).then(() => {
+            console.log('user deleted')
+        }).catch((error) => {
+           console.log(error) 
+        });
+    }
 
 
     return (
@@ -60,13 +68,13 @@ export default function Home() {
                     <input
                         type="text"
                         name="firstname"
-                        value={userData != null ? userData.firstname :  "loading"}
+                        value={userData != null ? userData.firstname : "loading"}
                         onChange={handleFirstnameChange}
                     />
                     <input
                         type="text"
                         name="lastname"
-                        value={userData != null ? userData.lastname :  "loading"}
+                        value={userData != null ? userData.lastname : "loading"}
                         onChange={handleLastnameChange}
                     />
                     {/* Add lastname? */}
