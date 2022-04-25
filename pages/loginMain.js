@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from '../styles/loginStyles.module.css';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import axios from "axios";
 
 export default function Home() {
 
@@ -18,6 +19,9 @@ export default function Home() {
         // Signed in 
         const user = userCredential.user;
         console.log("Signed in user: ", user);
+        axios.put(`/api/users/${user.uid}`, {
+          lastLoginDate: new Date().toLocaleString(),
+        })
       })
       .catch((error) => {
         console.log(error.code);
