@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from '../styles/profile.module.css';
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 
 export default function Home() {
@@ -25,10 +25,16 @@ export default function Home() {
                 console.log('user signed out')
             }
         });
-        
-
-
     })
+
+    const signOutUser = () => {
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            console.log("signout successful")
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
 
 
     return (
@@ -54,7 +60,7 @@ export default function Home() {
                     Edit Info
                 </a>
 
-                <a className={styles.button}>
+                <a className={styles.button} onClick={signOutUser}>
                     Log Out
                 </a>
             </div>
