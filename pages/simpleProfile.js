@@ -39,13 +39,15 @@ export default function Home() {
                 </div>
                 <div>
                     {userData != null ? userData.firstname : ""}
+                     <br></br>
+                    {userData != null ? userData.lastname: ""}
                 </div>
 
                 <div>
 
                     Last Login Date: XX/XX/XXXX <br></br>
-                    Email: jkhdskfhskj@jkh.com <br></br>
-                    Phone: 333-333-3333 <br></br>
+                    Email: {userData != null ? userData.email: ""}<br></br>
+                    Phone: {userData != null ? userData.phone: ""} <br></br>
                 </div>
 
                 <a className={styles.button} href='/editUserInfo'>
