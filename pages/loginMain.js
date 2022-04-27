@@ -60,7 +60,7 @@ export default function Home() {
 
 
           <a className={styles.link} href="forgot password link***" >Forget your password?</a><br />
-          <a className={styles.link} href="signup page link***">Sign Up</a>
+          <a className={styles.link} href="/signup">Sign Up</a>
         </div>
       </main>
 
