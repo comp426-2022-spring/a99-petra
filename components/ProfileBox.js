@@ -2,30 +2,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from '../styles/ProfileBox.module.css';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import Router from "next/router";
+import { ImCross } from 'react-icons/im';
+import Link from "next/link";
 
 
-export function ProfileBox() {
-    const [userData, setUserData] = useState(null);
 
-    useEffect(async () => {
+export function ProfileBox(props) {
 
-        const auth = getAuth();
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                const uid = user.uid;
-                // console.log(uid)
-                if (userData == null) {
-                    await axios.get(`/api/users/${uid}`).then((response) => {
-                        console.log(response);
-                        setUserData(response.data)
-                    })
-                }
-            } else {
-                // User is signed out
-                console.log('user signed out')
-            }
-        });
-    })
+    const userData = props.userData;
 
     const signOutUser = () => {
         const auth = getAuth();
@@ -38,18 +23,22 @@ export function ProfileBox() {
 
     return (
         <div className={styles.profile}>
-            <div className={styles.circle}>
-
-            </div>
+            <Link href="/simpleDashboard">
+                <div className={styles.exitButton}>
+                    <ImCross></ImCross>
+                </div>
+            </Link>
+            <div className={styles.circle}></div>
             <div>
                 {userData != null ? userData.firstname : ""}
+                <br></br>
+                {userData != null ? userData.lastname : ""}
             </div>
 
             <div>
-
-                Last Login Date: XX/XX/XXXX <br></br>
-                Email: jkhdskfhskj@jkh.com <br></br>
-                Phone: 333-333-3333 <br></br>
+                Last Login Date: {userData != null ? userData.lastLoginDate : ""} <br></br>
+                Email: {userData != null ? userData.email : ""}<br></br>
+                Phone: {userData != null ? userData.phone : ""} <br></br>
             </div>
 
             <a className={styles.button} href='editprofile'>

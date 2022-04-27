@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from '../styles/SignupBox.module.css';
 import { getAuth, createUserWithEmailAndPassword } from "@firebase/auth";
 import axios from "axios";
+import Router from "next/router";
 
 export function SignupBox() {
 
@@ -12,17 +13,20 @@ export function SignupBox() {
         phone:"",
         username:"",
         password:"",
-        repeatpassword:""
-
+        firstInitial: "",
+        lastInitial: "",
     });
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("HANDLE SUBMIT");
+        data["firstInitial"] = data.firstname[0]
+        data["lastInitial"] = data.lastname[0];
+        console.log("passing data", data)
         const auth = getAuth();
         console.log("auth", auth)
         createUserWithEmailAndPassword(auth, data.email, data.password)
-          .then((userCredential) => {
+        .then((userCredential) => {
             // Signed in 
             const user = userCredential.user;
             console.log("Signed up user: ", user)
@@ -31,11 +35,12 @@ export function SignupBox() {
             axios.post("/api/users", newData).then((response) => {
                 console.log(response);
             })
-          })
-          .catch((error) => {
+            Router.push('/loginMain');
+        })
+        .catch((error) => {
             console.log(error.code);
             console.log(error.message);
-          });
+        });
     }
     
     const changeUpdate = e => {
@@ -43,7 +48,7 @@ export function SignupBox() {
         console.log(data);
     }
 
-    const {firstname, lastname, email, phone, username, password} = data;
+    const {firstname, lastname, email, phone, username,password, firstInitial, lastInitial } = data;
     
 
     return ( 

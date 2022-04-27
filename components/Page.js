@@ -4,14 +4,17 @@ import { Content } from './Content';
 import { Footer } from './Footer';
 
 export function Page(props) {
+
+    const userData = props.userData;
+
     let layout_class = "layout_" + props.layout;
     let page_elements = "";
 
     if (props.layout == "0") {
         page_elements = (
             <div className={styles[layout_class]}>
-                <Navbar></Navbar>
-                <Content layout={props.layout}>
+                <Navbar userData={userData}></Navbar>
+                <Content layout={props.layout} userData={userData}>
                     {props.children}
                 </Content>
                 <Footer></Footer>
@@ -20,7 +23,7 @@ export function Page(props) {
     } else if (props.layout == "1") {
         page_elements = (
             <div className={styles[layout_class]}>
-                <Content layout={props.layout}>
+                <Content layout={props.layout} userData={userData}>
                     {props.children}
                 </Content>
             </div>

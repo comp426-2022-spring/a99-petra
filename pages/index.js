@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TextBox } from '../components/TextBox'
 import { Page } from '../components/Page'
+import { getUserData } from './api/users/UserData';
 
 export default function Main() {
+
+  const userData = getUserData();
+
   return (
-      <Page layout="0">
+      <Page layout="0" userData={userData}>
         <TextBox>
           <h1>Team Petra</h1>
           <h2>Members:</h2>

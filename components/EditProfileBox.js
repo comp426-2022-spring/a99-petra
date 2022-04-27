@@ -4,30 +4,9 @@ import styles from '../styles/ProfileBox.module.css';
 import { getAuth, onAuthStateChanged, deleteUser } from "firebase/auth";
 
 
-export function EditProfileBox() {
-    const [userData, setUserData] = useState(null);
-    const [uid, setUid] = useState(null)
-
-    useEffect(async () => {
-
-        const auth = getAuth();
-        onAuthStateChanged(auth, async (user) => {
-            if (user) {
-                const uid = user.uid;
-                setUid(uid);
-                // console.log(uid)
-                if (userData == null) {
-                    await axios.get(`/api/users/${uid}`).then((response) => {
-                        console.log(response);
-                        setUserData(response.data)
-                    })
-                }
-            } else {
-                // User is signed out
-                console.log('user signed out')
-            }
-        });
-    })
+export function EditProfileBox(props) {
+    
+    const userData = props.userData;
 
     const handleFirstnameChange = (event) => {
         setUserData({ ...userData, firstname: event.target.value });
@@ -35,6 +14,10 @@ export function EditProfileBox() {
 
     const handleLastnameChange = (event) => {
         setUserData({ ...userData, lastname: event.target.value });
+    };
+
+    const handlePhoneChange = (event) => {
+        setUserData({ ...userData, phone: event.target.value });
     };
 
     const saveNewUserInfo = () => {
@@ -57,12 +40,9 @@ export function EditProfileBox() {
         });
     }
 
-
     return (
         <div className={styles.profile}>
-            <div className={styles.circle}>
-
-            </div>
+            <div className={styles.circle}></div>
             <div>
                 <input
                     type="text"
@@ -70,6 +50,7 @@ export function EditProfileBox() {
                     value={userData != null ? userData.firstname : "loading"}
                     onChange={handleFirstnameChange}
                 />
+                <br></br>
                 <input
                     type="text"
                     name="lastname"
@@ -78,13 +59,17 @@ export function EditProfileBox() {
                 />
                 {/* Add lastname? */}
             </div>
-
+            <br></br>
             <div>
-                Last Login Date: XX/XX/XXXX <br></br>
-                Email: jkhdskfhskj@jkh.com <br></br>
-                Phone: 333-333-3333 <br></br>
+                Email: {userData != null ? userData.email: ""}<br></br>
+                Phone: 
+                <input
+                    type="text"
+                    name="phone"
+                    value={userData != null ? userData.phone : "loading"}
+                    onChange={handlePhoneChange}
+                />
             </div>
-
             <a className={styles.button} href='/simpleProfile' onClick={saveNewUserInfo}>
                 Save
             </a>
@@ -92,7 +77,6 @@ export function EditProfileBox() {
             <a className={styles.button} href='/' onClick={deleteAccount}>
                 Delete Account
             </a>
-
         </div>
     );
 }

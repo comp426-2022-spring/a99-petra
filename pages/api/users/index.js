@@ -8,7 +8,7 @@ export default async (req, res) => {
     try {
         await setDoc(doc(db, "users", uid), {
             ...req.body,
-            created: new Date().toISOString(),
+            created: new Date().toLocaleString(),
           });
         res.status(200).json()
     } catch (e){
