@@ -12,7 +12,7 @@ export default async (req, res) => {
 
             await updateDoc(userRef, {
                 ...req.body,
-                updated: new Date().toISOString(),
+                updated: new Date().toLocaleString(),
             });
         } else if (req.method === 'GET') {
             const docRef = doc(db, "users", uid);
