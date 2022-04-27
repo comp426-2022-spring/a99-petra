@@ -6,26 +6,26 @@ import axios from "axios";
 
 export default function Home() {
 
-//   useEffect(async () => {
-//     const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState(null);
+  useEffect(async () => {
 
-//     const auth = getAuth();
-//     onAuthStateChanged(auth, async (user) => {
-//         if (user) {
-//             const uid = user.uid;
-//             // console.log(uid)
-//             if (userData == null) {
-//                 await axios.get(`/api/users/${uid}`).then((response) => {
-//                     console.log(response);
-//                     setUserData(response.data)
-//                 })
-//             }
-//         } else {
-//             // User is signed out
-//             console.log('user signed out')
-//         }
-//     });
-// })
+    const auth = getAuth();
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const uid = user.uid;
+        // console.log(uid)
+        if (userData == null) {
+          await axios.get(`/api/users/${uid}`).then((response) => {
+            console.log(response);
+            setUserData(response.data)
+          })
+        }
+      } else {
+        // User is signed out
+        console.log('user signed out')
+      }
+    });
+  })
 
 
   return (
