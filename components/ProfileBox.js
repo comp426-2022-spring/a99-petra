@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import styles from '../styles/profile.module.css';
+import styles from '../styles/ProfileBox.module.css';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 
-export default function Home() {
+export function ProfileBox() {
     const [userData, setUserData] = useState(null);
 
     useEffect(async () => {
@@ -36,35 +36,29 @@ export default function Home() {
         });
     }
 
-
     return (
-        <div className={styles.contain}>
-            <div className={styles.profile}>
-                <div className={styles.circle}>
+        <div className={styles.profile}>
+            <div className={styles.circle}>
 
-                </div>
-                <div>
-                    {userData != null ? userData.firstname : ""}
-                </div>
-
-                <div>
-
-                    Last Login Date: XX/XX/XXXX <br></br>
-                    Email: jkhdskfhskj@jkh.com <br></br>
-                    Phone: 333-333-3333 <br></br>
-                </div>
-
-                <a className={styles.button} href='/editUserInfo'>
-                    Edit Info
-                </a>
-
-                <a className={styles.button} onClick={signOutUser}>
-                    Log Out
-                </a>
+            </div>
+            <div>
+                {userData != null ? userData.firstname : ""}
             </div>
 
+            <div>
+
+                Last Login Date: XX/XX/XXXX <br></br>
+                Email: jkhdskfhskj@jkh.com <br></br>
+                Phone: 333-333-3333 <br></br>
+            </div>
+
+            <a className={styles.button} href='editprofile'>
+                Edit Info
+            </a>
+
+            <a className={styles.button} onClick={signOutUser}>
+                Log Out
+            </a>
         </div>
-
-
-    )
+    );
 }

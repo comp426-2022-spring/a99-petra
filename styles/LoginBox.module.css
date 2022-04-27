@@ -1,5 +1,3 @@
-
-
 .container{
     background-color: #F5F5F5;
     padding-left: 20%;
@@ -13,9 +11,12 @@
 }
 
 .mainBox{
+    margin: auto;
+    margin-top: 15vh;
+    margin-bottom: 15vh;
     align-content: center;
     justify-content: center;
-    width: 70%;
+    width: 50%;
     background-color: white;
     align-self: center;
     justify-self: center;
@@ -61,13 +62,6 @@
     opacity: 0.5;
   }
 
-  .formBox{
-    padding: 20px;
-  }
-
-
-
-
-
-
-
+.formBox{
+  padding: 20px;
+}

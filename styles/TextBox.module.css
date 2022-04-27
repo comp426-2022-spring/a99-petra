@@ -1,0 +1,9 @@
+.main {
+    margin: auto;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    padding: 20px;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+}

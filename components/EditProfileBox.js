@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import styles from '../styles/profile.module.css';
+import styles from '../styles/ProfileBox.module.css';
 import { getAuth, onAuthStateChanged, deleteUser } from "firebase/auth";
 
 
-export default function Home() {
+export function EditProfileBox() {
     const [userData, setUserData] = useState(null);
     const [uid, setUid] = useState(null)
 
@@ -59,46 +59,40 @@ export default function Home() {
 
 
     return (
-        <div className={styles.contain}>
-            <div className={styles.profile}>
-                <div className={styles.circle}>
-
-                </div>
-                <div>
-                    <input
-                        type="text"
-                        name="firstname"
-                        value={userData != null ? userData.firstname : "loading"}
-                        onChange={handleFirstnameChange}
-                    />
-                    <input
-                        type="text"
-                        name="lastname"
-                        value={userData != null ? userData.lastname : "loading"}
-                        onChange={handleLastnameChange}
-                    />
-                    {/* Add lastname? */}
-                </div>
-
-                <div>
-                    Last Login Date: XX/XX/XXXX <br></br>
-                    Email: jkhdskfhskj@jkh.com <br></br>
-                    Phone: 333-333-3333 <br></br>
-                </div>
-
-                <a className={styles.button} href='/simpleProfile' onClick={saveNewUserInfo}>
-                    Save
-                </a>
-
-                <a className={styles.button} href='/' onClick={deleteAccount}>
-                    Delete Account
-                </a>
-
+        <div className={styles.profile}>
+            <div className={styles.circle}>
 
             </div>
+            <div>
+                <input
+                    type="text"
+                    name="firstname"
+                    value={userData != null ? userData.firstname : "loading"}
+                    onChange={handleFirstnameChange}
+                />
+                <input
+                    type="text"
+                    name="lastname"
+                    value={userData != null ? userData.lastname : "loading"}
+                    onChange={handleLastnameChange}
+                />
+                {/* Add lastname? */}
+            </div>
+
+            <div>
+                Last Login Date: XX/XX/XXXX <br></br>
+                Email: jkhdskfhskj@jkh.com <br></br>
+                Phone: 333-333-3333 <br></br>
+            </div>
+
+            <a className={styles.button} href='/simpleProfile' onClick={saveNewUserInfo}>
+                Save
+            </a>
+
+            <a className={styles.button} href='/' onClick={deleteAccount}>
+                Delete Account
+            </a>
 
         </div>
-
-
-    )
+    );
 }

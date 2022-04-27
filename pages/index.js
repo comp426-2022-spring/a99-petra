@@ -1,43 +1,21 @@
-import styles from '../styles/general.module.css'
 import React, { useState } from 'react'
+import { TextBox } from '../components/TextBox'
+import { Page } from '../components/Page'
 
-export default function Home() {
+export default function Main() {
   return (
-    <div id={styles.main}>
-      <body>
-        <div id={styles.grid}>
-
-          <div id={styles.navbar}>
-            <div id={styles.navbar_content}>
-              <img src="placeholder.png" />
-              <div id={styles.navbar_profile}>
-                <div id={styles.profile_box}>
-                  <p>john martin</p>
-                  <a id={styles.circle} href="profile.html">jm</a>
-                  <a href="profile.html">view profile</a>
-                </div>
-              </div>
-              <div id={styles.navbar_links}>
-                <a href="/" class="active">home</a>
-                <a href="/simpleDashboard">dashboard</a>
-              </div>
-            </div>
-          </div>
-
-          <div id={styles.content}>
-            <div id={styles.about}>
-              <p>Team Petra</p>
-              <p>Created By: Andrew Byerle, Ashwin Yerramsetty, Matthew Bare, Sofia Wong, Winfield Warren</p>
-              <p>Description:</p>
-            </div>
-          </div>
-
-          <div id={styles.footer}>
-
-          </div>
-        </div>
-      </body>
-    </div>
-  )
-
+      <Page layout="0">
+        <TextBox>
+          <h1>Team Petra</h1>
+          <h2>Members:</h2>
+          <p>
+          Andrew Byerle, Ashwin Yerramsetty, Matthew Bare, Sofia Wong, Winfield Warren
+          </p>
+          <h2>Website Description:</h2>
+          <p>
+          Our team has created a simple COVID-19 reporting dashboard with user signup and login functionality.
+          </p>
+        </TextBox>
+      </Page>
+  );
 }
