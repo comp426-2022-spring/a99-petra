@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from '../styles/loginStyles.module.css';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import axios from "axios";
+import Router from "next/router";
 
 export default function Home() {
 
@@ -22,6 +23,7 @@ export default function Home() {
         axios.put(`/api/users/${user.uid}`, {
           lastLoginDate: new Date().toLocaleString(),
         })
+        Router.push('/');
       })
       .catch((error) => {
         console.log(error.code);

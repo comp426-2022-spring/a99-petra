@@ -15,6 +15,7 @@ import axios from "axios";
 export default function Home() {
     const [casesInfo, setCasesInfo] = useState(0)
     const [deathInfo, setDeathInfo] = useState(0)
+    const [menuPath, setMenuPath] = useState('/signup');
 
     var loggedIn = false;
     const COLORS = ['#0088FE', '#00C49F'];
@@ -47,6 +48,7 @@ export default function Home() {
                         setUserData(response.data)
                     })
                 }
+                setMenuPath('/simpleProfile')
             } else {
                 // User is signed out
                 setUserData(null);
@@ -66,7 +68,7 @@ export default function Home() {
                 COVID DASHBOARD
             </div>
             <div className={styles.sidebar}>
-                <a className={styles.profile} href="http://localhost:3000/simpleProfile">
+                <a className={styles.profile} href={menuPath}>
                     <div className={styles.circle}>
                     
                     </div>

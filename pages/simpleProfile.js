@@ -27,7 +27,7 @@ export default function Home() {
             } else {
                 // User is signed out
                 console.log('user signed out')
-                Router.push("/signup");
+                Router.push("/");
 
             }
         });
