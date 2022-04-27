@@ -84,6 +84,12 @@ export default function Home() {
                 <a className={styles.linkButton} href="/signup">
                     Sign Up
                 </a>
+                
+                </div>
+                <div>
+                <a className={styles.linkButton} href="/">
+                    Home
+                </a>
                 </div>
             </div>
             
