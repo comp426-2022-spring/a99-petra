@@ -7,25 +7,31 @@ import axios from "axios";
 export default function Home() {
 
   const [userData, setUserData] = useState(null);
-  // useEffect(async () => {
+  const [path1, setPath1] = useState('/loginMain');
+  const [path2, setPath2] = useState('/signup');
+  useEffect(async () => {
 
-  //   const auth = getAuth();
-  //   onAuthStateChanged(auth, async (user) => {
-  //     if (user) {
-  //       const uid = user.uid;
-  //       // console.log(uid)
-  //       if (userData == null) {
-  //         await axios.get(`/api/users/${uid}`).then(async (response) => {
-  //           console.log(response.data);
-  //           setUserData(response.data)
-  //         })
-  //       }
-  //     } else {
-  //       // User is signed out
-  //       console.log('user signed out')
-  //     }
-  //   });
-  // })
+    const auth = getAuth();
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const uid = user.uid;
+        // console.log(uid)
+        if (userData == null) {
+          await axios.get(`/api/users/${uid}`).then(async (response) => {
+            console.log(response.data);
+            setUserData(response.data)
+          })
+        }
+        setPath1('/simpleProfile');
+        setPath2('/simpleProfile');
+      } else {
+        // User is signed out
+        console.log('user signed out')
+        setPath1('/loginMain');
+        setPath2('/signup');
+      }
+    });
+  })
 
 
   return (
@@ -39,12 +45,9 @@ export default function Home() {
               <div id={styles.navbar_profile}>
                 <div id={styles.profile_box}>
                   <p>
-                    {/* {userData != null ? userData.firstname : ""}
-                     <br></br>
-                    {userData != null ? userData.lastname: ""}  */}
                   </p>
-                  <a id={styles.circle} href="profile.html">jm</a>
-                  <a href="profile.html">view profile</a>
+                  <a id={styles.circle} href={path1}> {userData != null ? `${userData.firstInitial}${userData.lastInitial}` : "login"}</a>
+                  <a href={path2}>{userData != null ? "view profile" : "signup"}</a>
                 </div>
               </div>
               <div id={styles.navbar_links}>
