@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from '../styles/profile.module.css';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import Router from "next/router";
 
 
 export default function Home() {
@@ -23,6 +24,8 @@ export default function Home() {
             } else {
                 // User is signed out
                 console.log('user signed out')
+                Router.push("/");
+
             }
         });
     })

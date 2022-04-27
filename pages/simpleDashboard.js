@@ -71,9 +71,9 @@ export default function Home() {
                     </div>
                     <div className={styles.profInfo}>
                         
-                        {userData != null ? userData.firstname : ""}
+                        {userData != null ? userData.firstname : "Create"}
                      <br></br>
-                    {userData != null ? userData.lastname: ""}</div>
+                    {userData != null ? userData.lastname: "Account"}</div>
                 </a>
 
                 <div className={styles.linkContainer}>
@@ -81,7 +81,7 @@ export default function Home() {
                     Log In
                 </a>
 
-                <a className={styles.linkButton}>
+                <a className={styles.linkButton} href="/signup">
                     Sign Up
                 </a>
                 </div>
