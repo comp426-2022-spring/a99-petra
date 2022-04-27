@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "@firebase/auth";
 import axios from "axios";
+import Router from "next/router";
 
 
 function SignUp() {
@@ -36,6 +37,7 @@ function SignUp() {
             axios.post("/api/users", newData).then((response) => {
                 console.log(response);
             })
+            Router.push('/loginMain');
           })
           .catch((error) => {
             console.log(error.code);
