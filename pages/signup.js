@@ -12,8 +12,8 @@ function SignUp() {
         phone:"",
         username:"",
         password:"",
-        repeatpassword:""
-
+        firstInitial: "",
+        lastInitial: "",
       });
 
 
@@ -21,6 +21,9 @@ function SignUp() {
       const handleSubmit = (event) => {
         event.preventDefault();
         console.log("HANDLE SUBMIT");
+        data["firstInitial"] = data.firstname[0]
+        data["lastInitial"] = data.lastname[0];
+        console.log("passing data", data)
         const auth = getAuth();
         console.log("auth", auth)
         createUserWithEmailAndPassword(auth, data.email, data.password)
@@ -46,7 +49,7 @@ function SignUp() {
         console.log(data);
       }
 
-      const {firstname, lastname, email, phone, username,password } = data;
+      const {firstname, lastname, email, phone, username,password, firstInitial, lastIniti } = data;
     
 
     return ( 
@@ -93,7 +96,7 @@ function SignUp() {
                 >
                 </input>
             </form>
-            <a className= "Login" href="login page link***">LOGIN</a>
+            <a className= "Login" href="/loginMain">LOGIN</a>
         </div>
         </div>
         

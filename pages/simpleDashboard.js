@@ -40,8 +40,8 @@ export default function Home() {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 const uid = user.uid;
-                // console.log(uid)
-                if (userData == null) {
+                console.log(uid)
+                if (userData === null) {
                     await axios.get(`/api/users/${uid}`).then((response) => {
                         console.log(response);
                         setUserData(response.data)
@@ -49,10 +49,11 @@ export default function Home() {
                 }
             } else {
                 // User is signed out
+                setUserData(null);
                 console.log('user signed out')
             }
         });
-    })
+    }, [getAuth()])
 
       console.log(getCovidData);
 
