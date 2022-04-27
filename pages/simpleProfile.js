@@ -54,7 +54,7 @@ export default function Home() {
 
                 <div>
 
-                    Last Login Date: XX/XX/XXXX <br></br>
+                    Last Login Date: {userData != null ? userData.lastLoginDate : ""} <br></br>
                     Email: {userData != null ? userData.email: ""}<br></br>
                     Phone: {userData != null ? userData.phone: ""} <br></br>
                 </div>
