@@ -105,7 +105,7 @@ export default function Home() {
                 <a className={styles.button} href='/' onClick={deleteAccount}>
                     Delete Account
                 </a>
-
+                
 
             </div>
 

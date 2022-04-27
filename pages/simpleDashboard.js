@@ -15,6 +15,7 @@ import axios from "axios";
 export default function Home() {
     const [casesInfo, setCasesInfo] = useState(0)
     const [deathInfo, setDeathInfo] = useState(0)
+    const [menuPath, setMenuPath] = useState('/signup');
 
     var loggedIn = false;
     const COLORS = ['#0088FE', '#00C49F'];
@@ -40,19 +41,21 @@ export default function Home() {
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 const uid = user.uid;
-                // console.log(uid)
-                if (userData == null) {
+                console.log(uid)
+                if (userData === null) {
                     await axios.get(`/api/users/${uid}`).then((response) => {
                         console.log(response);
                         setUserData(response.data)
                     })
                 }
+                setMenuPath('/simpleProfile')
             } else {
                 // User is signed out
+                setUserData(null);
                 console.log('user signed out')
             }
         });
-    })
+    }, [getAuth()])
 
       console.log(getCovidData);
 
@@ -65,15 +68,15 @@ export default function Home() {
                 COVID DASHBOARD
             </div>
             <div className={styles.sidebar}>
-                <a className={styles.profile} href="http://localhost:3000/simpleProfile">
+                <a className={styles.profile} href={menuPath}>
                     <div className={styles.circle}>
                     
                     </div>
                     <div className={styles.profInfo}>
                         
-                        {userData != null ? userData.firstname : ""}
+                        {userData != null ? userData.firstname : "Create"}
                      <br></br>
-                    {userData != null ? userData.lastname: ""}</div>
+                    {userData != null ? userData.lastname: "Account"}</div>
                 </a>
 
                 <div className={styles.linkContainer}>
@@ -81,8 +84,14 @@ export default function Home() {
                     Log In
                 </a>
 
-                <a className={styles.linkButton}>
+                <a className={styles.linkButton} href="/signup">
                     Sign Up
+                </a>
+                
+                </div>
+                <div>
+                <a className={styles.linkButton} href="/">
+                    Home
                 </a>
                 </div>
             </div>

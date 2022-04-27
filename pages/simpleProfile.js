@@ -2,6 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styles from '../styles/profile.module.css';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import Router from "next/router";
+import { ImCross } from 'react-icons/im';
+import Link from "next/link";
+
 
 
 export default function Home() {
@@ -23,6 +27,8 @@ export default function Home() {
             } else {
                 // User is signed out
                 console.log('user signed out')
+                Router.push("/");
+
             }
         });
     })
@@ -39,21 +45,27 @@ export default function Home() {
 
     return (
         <div className={styles.contain}>
+
             <div className={styles.profile}>
+                <Link href="/simpleDashboard">
+                    <div className={styles.exitButton}>
+                        <ImCross></ImCross>
+                    </div>
+                </Link>
                 <div className={styles.circle}>
 
                 </div>
                 <div>
                     {userData != null ? userData.firstname : ""}
-                     <br></br>
-                    {userData != null ? userData.lastname: ""}
+                    <br></br>
+                    {userData != null ? userData.lastname : ""}
                 </div>
 
                 <div>
 
-                    Last Login Date: XX/XX/XXXX <br></br>
-                    Email: {userData != null ? userData.email: ""}<br></br>
-                    Phone: {userData != null ? userData.phone: ""} <br></br>
+                    Last Login Date: {userData != null ? userData.lastLoginDate : ""} <br></br>
+                    Email: {userData != null ? userData.email : ""}<br></br>
+                    Phone: {userData != null ? userData.phone : ""} <br></br>
                 </div>
 
                 <a className={styles.button} href='/editUserInfo'>
