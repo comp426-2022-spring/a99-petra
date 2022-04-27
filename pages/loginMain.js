@@ -53,7 +53,7 @@ export default function Home() {
               <input className={styles.usernameBox} type="text" name="email" value={email} onChange={changeUpdate} /><br />
             </label>
             <label>Password
-              <input className={styles.passwordBox} type="text" name="password" value={password} onChange={changeUpdate} /><br />
+              <input className={styles.passwordBox} type="password" name="password" value={password} onChange={changeUpdate} display='false'/><br />
             </label>
             <input className={styles.submitBox} type="submit" name="LOGIN" />
           </form>
