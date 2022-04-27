@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from '../styles/dash.module.css';
 import { PieChart, Pie, Tooltip, Cell,  Sector} from 'recharts';
-
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import {getCovidData} from '../data/covidData'
-
+import axios from "axios";
 //To do:
 //Variables for Profile
 //Dont display profile if signed in
@@ -32,7 +32,31 @@ export default function Home() {
         {name: 'Negative Results', students: neg},
       ];
 
+    const [userData, setUserData] = useState(null);
+
+    useEffect(async () => {
+
+        const auth = getAuth();
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                const uid = user.uid;
+                // console.log(uid)
+                if (userData == null) {
+                    await axios.get(`/api/users/${uid}`).then((response) => {
+                        console.log(response);
+                        setUserData(response.data)
+                    })
+                }
+            } else {
+                // User is signed out
+                console.log('user signed out')
+            }
+        });
+    })
+
       console.log(getCovidData);
+
+    
 
     return (
         
@@ -45,7 +69,11 @@ export default function Home() {
                     <div className={styles.circle}>
                     
                     </div>
-                    <div className={styles.profInfo}>Winfield Warren</div>
+                    <div className={styles.profInfo}>
+                        
+                        {userData != null ? userData.firstname : ""}
+                     <br></br>
+                    {userData != null ? userData.lastname: ""}</div>
                 </a>
 
                 <div className={styles.linkContainer}>

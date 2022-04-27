@@ -37,6 +37,10 @@ export default function Home() {
         setUserData({ ...userData, lastname: event.target.value });
     };
 
+    const handlePhoneChange = (event) => {
+        setUserData({ ...userData, phone: event.target.value });
+    };
+
     const saveNewUserInfo = () => {
         axios.put(`/api/users/${uid}`, userData).then((response) => {
             console.log(response)
@@ -71,6 +75,7 @@ export default function Home() {
                         value={userData != null ? userData.firstname : "loading"}
                         onChange={handleFirstnameChange}
                     />
+                    <br></br>
                     <input
                         type="text"
                         name="lastname"
@@ -79,11 +84,18 @@ export default function Home() {
                     />
                     {/* Add lastname? */}
                 </div>
+                <br></br>
+                
 
                 <div>
-                    Last Login Date: XX/XX/XXXX <br></br>
-                    Email: jkhdskfhskj@jkh.com <br></br>
-                    Phone: 333-333-3333 <br></br>
+                    Email: {userData != null ? userData.email: ""}<br></br>
+                    Phone: 
+                    <input
+                        type="text"
+                        name="phone"
+                        value={userData != null ? userData.phone : "loading"}
+                        onChange={handlePhoneChange}
+                    />
                 </div>
 
                 <a className={styles.button} href='/simpleProfile' onClick={saveNewUserInfo}>
