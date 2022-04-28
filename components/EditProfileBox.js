@@ -9,25 +9,27 @@ export function EditProfileBox(props) {
     const userData = props.userData;
 
     const handleFirstnameChange = (event) => {
-        setUserData({ ...userData, firstname: event.target.value });
+        userData.firstname = event.target.value;
+        userData.firstInitial = userData.firstname[0];
     };
 
     const handleLastnameChange = (event) => {
-        setUserData({ ...userData, lastname: event.target.value });
+        userData.lastname = event.target.value;
+        userData.lastInitial = userData.lastname[0];
     };
 
     const handlePhoneChange = (event) => {
-        setUserData({ ...userData, phone: event.target.value });
+        userData.phone = event.target.value;
     };
 
     const saveNewUserInfo = () => {
-        axios.put(`/api/users/${uid}`, userData).then((response) => {
+        axios.put(`/api/users/${userData.uid}`, userData).then((response) => {
             console.log(response)
         })
     }
 
     const deleteAccount = () => {
-        axios.delete(`/api/users/${uid}`).then((response) => {
+        axios.delete(`/api/users/${userData.uid}`).then((response) => {
             console.log(response)
         })
         const auth = getAuth();
@@ -42,35 +44,32 @@ export function EditProfileBox(props) {
 
     return (
         <div className={styles.profile}>
-            <div className={styles.circle}></div>
+            <h2>Edit Profile</h2>
             <div>
+                <p>First Name</p>
                 <input
                     type="text"
                     name="firstname"
-                    value={userData != null ? userData.firstname : "loading"}
+                    placeholder={userData != null ? userData.firstname : "loading"}
                     onChange={handleFirstnameChange}
                 />
-                <br></br>
+                <p>Last Name</p>
                 <input
                     type="text"
                     name="lastname"
-                    value={userData != null ? userData.lastname : "loading"}
+                    placeholder={userData != null ? userData.lastname : "loading"}
                     onChange={handleLastnameChange}
                 />
-                {/* Add lastname? */}
-            </div>
-            <br></br>
-            <div>
-                Email: {userData != null ? userData.email: ""}<br></br>
-                Phone: 
+                <p>Email<br></br>{userData != null ? userData.email: ""}</p>
+                <p>Phone</p>
                 <input
                     type="text"
                     name="phone"
-                    value={userData != null ? userData.phone : "loading"}
+                    placeholder={userData != null ? userData.phone : "loading"}
                     onChange={handlePhoneChange}
                 />
             </div>
-            <a className={styles.button} href='/simpleProfile' onClick={saveNewUserInfo}>
+            <a className={styles.button} href='profile' onClick={saveNewUserInfo}>
                 Save
             </a>
 

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import styles from '../styles/ProfileBox.module.css';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import Router from "next/router";
-import { ImCross } from 'react-icons/im';
 import Link from "next/link";
 
 
@@ -23,17 +22,7 @@ export function ProfileBox(props) {
 
     return (
         <div className={styles.profile}>
-            <Link href="/simpleDashboard">
-                <div className={styles.exitButton}>
-                    <ImCross></ImCross>
-                </div>
-            </Link>
-            <div className={styles.circle}></div>
-            <div>
-                {userData != null ? userData.firstname : ""}
-                <br></br>
-                {userData != null ? userData.lastname : ""}
-            </div>
+            <h2>{userData != null ? userData.firstname + ' ' + userData.lastname : ""}</h2>
 
             <div>
                 Last Login Date: {userData != null ? userData.lastLoginDate : ""} <br></br>
@@ -45,7 +34,7 @@ export function ProfileBox(props) {
                 Edit Info
             </a>
 
-            <a className={styles.button} onClick={signOutUser}>
+            <a className={styles.button} href='/' onClick={signOutUser}>
                 Log Out
             </a>
         </div>

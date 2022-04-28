@@ -55,7 +55,6 @@ export function LoginBox() {
             <input className={styles.submitBox} type="submit" name="LOGIN" />
             </form>
 
-          <a className={styles.link} href="forgot password link***" >Forget your password?</a><br />
           <a className={styles.link} href="signup">Sign Up</a>
         </div>
     </div>

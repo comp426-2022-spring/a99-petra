@@ -9,7 +9,7 @@ export default function Main() {
 
   return (
     <Page layout="0" userData={userData}>
-      <ProfileBox></ProfileBox>
+      <ProfileBox userData={userData}></ProfileBox>
     </Page>
   );
 }

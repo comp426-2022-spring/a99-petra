@@ -40,12 +40,18 @@
     color: rgb(0, 52, 85);
 }
 
-#navbar_profile #profile_box {
+#profile_box {
+    box-sizing: border-box;
     width: 50%;
     background-color: rgb(255, 255, 255);
     padding-top: 2vh;
     padding-bottom: 2vh;
     margin: auto;
+}
+
+#profile_box p {
+    padding: 5px;
+    margin: 0;
 }
 
 #navbar_profile a {
@@ -58,19 +64,28 @@
     text-decoration: none;
 }
 
-#navbar_profile #circle {
-    display: block;
+#profile_box #circle {
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     margin: auto;
-    padding: 0;
-    padding-top: 18px;;
-    font-size: 24px;
-    width: 13vh;
-    height: 13vh;
+
+    width: 80%;
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
     border: 2px solid white;
     background-color: rgb(0, 255, 174);
     color: black;
+}
+
+#initials {
+    display: inline-block;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
 #navbar_profile #circle:hover {

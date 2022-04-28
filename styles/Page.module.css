@@ -13,7 +13,7 @@
 .layout_0 {
     display: grid;
     grid-template-columns: 5vw 14vw 74vw 7vw;
-    grid-template-rows: auto 20vh;
+    grid-template-rows: auto minmax(20vh, auto);
 }
 
 .layout_1 {

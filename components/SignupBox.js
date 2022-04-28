@@ -35,7 +35,7 @@ export function SignupBox() {
             axios.post("/api/users", newData).then((response) => {
                 console.log(response);
             })
-            Router.push('/loginMain');
+            Router.push('/login');
         })
         .catch((error) => {
             console.log(error.code);
@@ -90,7 +90,7 @@ export function SignupBox() {
                     <br></br>
                     <input className={styles.submitBox} type="submit" id="submit" value="Submit"></input>
                 </form>
-                <a className={styles.link} href="login">LOGIN</a>
+                <a className={styles.link} href="login">Login</a>
             </div>
         </div>
     );
