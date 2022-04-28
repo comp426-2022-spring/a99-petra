@@ -1,6 +1,17 @@
-.main {
-    min-height: 15vh;
+.Footer {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+    margin: auto;
+    padding: 1vw;
     width: 100%;
-    background-color: lightskyblue;
-    padding: 10px;
+    height: 100%;
+    background-color: rgb(188, 229, 255);
+}
+
+.Footer a {
+    display: block;
+}
+
+.Footer a:hover {
+    color: rgb(15, 132, 205);
 }

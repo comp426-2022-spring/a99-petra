@@ -1,0 +1,11 @@
+.layout_0 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+    background-color: rgb(210, 238, 255);
+}
+
+.layout_1 {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    background-color: rgb(210, 238, 255);
+}
