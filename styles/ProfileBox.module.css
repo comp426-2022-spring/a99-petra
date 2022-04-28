@@ -1,15 +1,20 @@
 .profile{
+    box-sizing: border-box;
     display: flex;
+    margin: auto;
+    margin-top: 5vh;
+    padding-bottom: 5vh;
     flex-direction: column;
     justify-content: center;
     align-content: center;
     text-align: center;
     background-color: white;
     width: 40%;
-    height: 75%;
+    height: auto;
 }
 
 .circle{
+    box-sizing: border-box;
     border-radius: 100%;
     background-color: aquamarine;
     height: 100px;
@@ -18,28 +23,29 @@
 }
 
 .button{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 50%;
+    margin: auto;
+    margin-top: 1vh;
     background-color: #323943;
     color: white;
-    width: 15%;
-    height: 10%;
     padding: 5px;
-    margin: 10px;
-    align-self: center;
 }
 
 .button:hover{
     opacity: 50%;
 }
 
-.contain{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    background-color: #ECF0F3;
-    height: 740px;
-    padding: 8%;
+.profile input {
+    display: inline-block;
+    margin: auto;
+    width: 55%;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
-.exitButton{
-    padding-left: 85%;
+.profile p {
+    margin: 0;
+    margin-top:1vh;
 }
