@@ -58,32 +58,32 @@ export function SignupBox() {
             </header>
             <div className={styles.formBox}>
                 <form onSubmit={handleSubmit}>
-                    <label for="firstname">
+                    <label htmlFor="firstname">
                         First Name: 
                         <input className={styles.field} type="text" placeholder="John" name="firstname" value={firstname} onChange={changeUpdate} required></input>
                     </label>
                     <br></br>
-                    <label for="lastname">
+                    <label htmlFor="lastname">
                         Last Name: 
                         <input className={styles.field} type="text" placeholder="Doe" name="lastname" value={lastname} onChange={changeUpdate} required></input>
                     </label>
                     <br></br>
-                    <label for="email">
+                    <label htmlFor="email">
                         Email: 
                         <input className={styles.field} type="text" placeholder="johndoe@email.com" name="email" value={email} onChange={changeUpdate} required></input>
                     </label>
                     <br></br>
-                    <label for="phone">
+                    <label htmlFor="phone">
                         Phone Number: 
                         <input className={styles.field} type="text" placeholder="123-456-7890" name="phone" value={phone} onChange={changeUpdate} required></input>
                     </label>
                     <br></br>
-                    <label for="username">
+                    <label htmlFor="username">
                         User Name: 
                         <input className={styles.field} type="text" placeholder="johndoe" name="username" value={username} onChange={changeUpdate} required></input>
                     </label>
                     <br></br>
-                    <label for="password">
+                    <label htmlFor="password">
                         Password: 
                         <input className={styles.field} type="password" placeholder="Enter Password" name="password" value={password} onChange={changeUpdate} required></input>
                     </label>
