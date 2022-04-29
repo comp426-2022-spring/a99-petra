@@ -46,7 +46,8 @@ Install the necessary packages needed to run the app:
 
 To run the app (ex. In VScode terminal):
 
-`npm run dev`
+run `npm run dev`
+
 In your browser, navigate to:  `localhost:3000`
 
 End the session with Ctrl+c
