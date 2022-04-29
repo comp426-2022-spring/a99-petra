@@ -2,7 +2,7 @@
 
 ## Team Petra 
 
-Our team created a website featuring a COVID-19 tracking dashboard and pandemic resources, with user signup and login functionality. We used Next.js,  Firebase, and the CovidActNow api to build this website.
+Our team created a website featuring a COVID-19 dashboard and pandemic resources, with user signup and login functionality. We used Next.js,  Firebase, and the CovidActNow api to build this website.
 
 
 ## Team mangement
@@ -10,15 +10,15 @@ Our team created a website featuring a COVID-19 tracking dashboard and pandemic 
 
 Basic roles:
 
-- Review manager, Project Manager, Back end lead - Andrew 
-- Plan manager, Design lead - Matthew
-- Documentation manager - Ashwin 
+- Review manager, Project Manager, Back-end lead - Andrew 
+- Plan manager, Design lead, front-end support - Matthew
+- Documentation manager front-end support - Ashwin 
 - Release manager, Front end lead - Sofia
 - Database lead - Winfield
 
 
 
-## Setup instructions
+## Instructions for setup and running
 
 Install Node.js, Git, and VS Code (or another code editor) if you don’t have them already.
 
@@ -40,6 +40,21 @@ To run the app (ex. In VScode terminal):
 In your browser, navigate to:  `localhost:3000`
 
 End the session with Ctrl+c
+
+
+
+## Required Packages and dependency list
+
+When you run `npm install` inside the package root directory, this will install all required dependencies. These can be found in `package.json`.
+
+Some packages are listed below-
+axios:^0.26.1 firebase:^9.6.11 next:12.1.1 react:17.0.2 react-dom:17.0.2 react-icons:4.3.1 recharts:2.1.9
+
+
+
+
+
+
 
 
 
