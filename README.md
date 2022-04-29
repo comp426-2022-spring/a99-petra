@@ -40,7 +40,7 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="52760834417"
 NEXT_PUBLIC_FIREBASE_APP_ID="1:52760834417:web:df85d59191cd59ac1a06d0"
 NEXT_PUBLIC_COVID_KEY="a20ae47ef015408baf810eefe7d29418"`
 
-### VERY IMPORTANT- make sure to hit save (cntr/cmmd + S) at this point to avoid firebase issues/errors
+### make sure to hit save (cntr/cmmd + S) at this point to avoid firebase issues/errors
 
 Install the necessary packages needed to run the app:
 
@@ -63,7 +63,7 @@ When you run `npm install` inside the package root directory, this will install 
 Some packages are listed below-
 axios:^0.26.1 firebase:^9.6.11 next:12.1.1 react:17.0.2 react-dom:17.0.2 react-icons:4.3.1 recharts:2.1.9
 
-### ALSO VERY IMPORTANT!!! - make sure the dependencies, especially firebase is the version listed.
+### make sure the dependencies, especially firebase are the version listed.
 
 
 
