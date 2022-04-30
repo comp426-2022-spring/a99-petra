@@ -2,7 +2,7 @@
 
 ## Team Petra 
 
-Our team created a website featuring a COVID-19 dashboard and pandemic resources, with user signup and login functionality. We used Next.js,  Firebase, and the CovidActNow api to build this website.
+Our team created a website featuring a COVID-19 dashboard and pandemic resources, with user signup and login functionality. We used Next.js,  Firebase, and the CovidActNow api to build this website. https://youtu.be/8ryYBEjRrR4
 
 
 ## Team mangement
